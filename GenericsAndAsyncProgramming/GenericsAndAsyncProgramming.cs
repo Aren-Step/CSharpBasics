@@ -28,7 +28,7 @@ namespace CSharpBasics
         }
     }
 
-    class Program
+    class GenericsAndAsyncProgramming
     {
         static async Task DoSomeWork()
         {
