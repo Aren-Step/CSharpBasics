@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" version="26.2.14">
   <diagram name="Page-1" id="v2l32i1PEdWWsTGr0Tao">
-    <mxGraphModel dx="1665" dy="429" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1741" dy="469" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -91,10 +91,13 @@
         <mxCell id="TTWUy_FGv6fjRsHf4khs-44" value="CLR initialization" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
           <mxGeometry x="-760" y="320" width="200" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="TTWUy_FGv6fjRsHf4khs-45" value="Sets a budget size (in KB) for generation 0 / 1 / 2" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-720" y="1120" width="520" height="40" as="geometry" />
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-98" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.864;exitY=1.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-45" target="TTWUy_FGv6fjRsHf4khs-79">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="TTWUy_FGv6fjRsHf4khs-47" value="CLR allocates space for &lt;font face=&quot;Courier New&quot;&gt;new &lt;/font&gt;&lt;font face=&quot;Helvetica&quot;&gt;objects in generation 0&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-45" value="Sets a budget size (in KB) for generation 0 / 1 / 2" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="-720" y="840" width="520" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-47" value="CLR allocates space for &lt;font face=&quot;Courier New&quot;&gt;new&lt;/font&gt;&lt;font face=&quot;Helvetica&quot;&gt; objects in generation 0&lt;/font&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
           <mxGeometry x="-760" y="480" width="640" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TTWUy_FGv6fjRsHf4khs-49" value="&lt;div&gt;If the last allocated object surpasses generation 0&#39;s budget,&amp;nbsp;&lt;/div&gt;&lt;div&gt;GC starts&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
@@ -117,10 +120,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="TTWUy_FGv6fjRsHf4khs-79" value="&lt;div&gt;&lt;font size=&quot;1&quot;&gt;if there are very few surviving objects, the GC might decide to reduce the budget of the generation.&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-680" y="1200" width="190" height="80" as="geometry" />
+          <mxGeometry x="-680" y="920" width="190" height="80" as="geometry" />
         </mxCell>
         <mxCell id="TTWUy_FGv6fjRsHf4khs-81" value="&lt;div&gt;&lt;font size=&quot;1&quot;&gt;if there are a lot of surviving objects in the generation, the GC will grow its budget.&lt;/font&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-430" y="1200" width="190" height="80" as="geometry" />
+          <mxGeometry x="-430" y="920" width="190" height="80" as="geometry" />
         </mxCell>
         <mxCell id="TTWUy_FGv6fjRsHf4khs-86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.077;exitY=1.046;exitDx=0;exitDy=0;entryX=0.062;entryY=0.003;entryDx=0;entryDy=0;exitPerimeter=0;entryPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-84" target="TTWUy_FGv6fjRsHf4khs-47">
           <mxGeometry relative="1" as="geometry" />
@@ -142,6 +145,33 @@
               <mxPoint x="-121" y="700" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-95" value="Initially" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="TTWUy_FGv6fjRsHf4khs-91">
+          <mxGeometry x="0.6044" relative="1" as="geometry">
+            <mxPoint x="-205" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-96" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.888;exitY=0.989;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.865;entryY=-0.011;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-64" target="TTWUy_FGv6fjRsHf4khs-45">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-300" y="800" as="sourcePoint" />
+            <mxPoint x="-200" y="800" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-120" y="800" />
+              <mxPoint x="-270" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-97" value="Initially" style="edgeLabel;resizable=0;html=1;;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="TTWUy_FGv6fjRsHf4khs-96">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.864;exitY=1.011;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-45" target="TTWUy_FGv6fjRsHf4khs-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.923;exitY=1.001;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-45" target="TTWUy_FGv6fjRsHf4khs-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-45" target="TTWUy_FGv6fjRsHf4khs-81">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
