@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:138.0) Gecko/20100101 Firefox/138.0" version="26.2.14">
   <diagram name="Page-1" id="v2l32i1PEdWWsTGr0Tao">
-    <mxGraphModel dx="2208" dy="715" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2434" dy="834" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -140,8 +140,8 @@
         <mxCell id="TTWUy_FGv6fjRsHf4khs-49" value="&lt;div&gt;If the last allocated object surpasses generation 0&#39;s budget,&amp;nbsp;&lt;/div&gt;&lt;div&gt;GC starts&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
           <mxGeometry x="-760" y="560" width="640" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="TTWUy_FGv6fjRsHf4khs-64" value="CLR performs Garbage Collection Algorithm for generation 0 / 1 / 2" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-760" y="720" width="720" height="40" as="geometry" />
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-64" value="CLR performs Garbage Collection Algorithm for generation 0 // 1 // 2" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
+          <mxGeometry x="-760" y="720" width="740" height="40" as="geometry" />
         </mxCell>
         <mxCell id="TTWUy_FGv6fjRsHf4khs-66" value="Sets survived objects to generation&amp;nbsp; 1 // 2" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=0;verticalAlign=middle;align=left;" vertex="1" parent="1">
           <mxGeometry x="-720" y="1280" width="440" height="40" as="geometry" />
@@ -173,13 +173,13 @@
             <mxPoint x="-720" y="560" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTWUy_FGv6fjRsHf4khs-91" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.062;exitY=1.017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.888;entryY=-0.008;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-49" target="TTWUy_FGv6fjRsHf4khs-64">
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-91" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.062;exitY=1.017;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.865;entryY=0.004;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-49" target="TTWUy_FGv6fjRsHf4khs-64">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-720" y="650" as="sourcePoint" />
             <mxPoint x="-620" y="650" as="targetPoint" />
             <Array as="points">
               <mxPoint x="-720" y="700" />
-              <mxPoint x="-121" y="700" />
+              <mxPoint x="-120" y="700" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -188,7 +188,7 @@
             <mxPoint x="-205" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="TTWUy_FGv6fjRsHf4khs-96" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.889;exitY=0.977;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.833;entryY=-0.022;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-64" target="TTWUy_FGv6fjRsHf4khs-45">
+        <mxCell id="TTWUy_FGv6fjRsHf4khs-96" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.865;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.833;entryY=-0.022;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="TTWUy_FGv6fjRsHf4khs-64" target="TTWUy_FGv6fjRsHf4khs-45">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-300" y="800" as="sourcePoint" />
             <mxPoint x="-200" y="800" as="targetPoint" />
