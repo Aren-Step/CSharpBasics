@@ -23,11 +23,24 @@ namespace CSharpBasics
             public Employee(string name, int id) => (Name, Id) = (name, id);
             public string? Name { get; set; }
             public int Id { get; set; }
-            
+            public static int SomeMethod() { return 0; }
+
         }
+            public delegate int SomeMethodDelegate();
+
+        public static IEnumerable GetDigits()
+        {
+            int digit = 0;
+            while (digit < 10) 
+            {
+                yield return digit++;
+            }
+        }
+        public delegate IEnumerable GetDigitsDelegate();
         // Driver Code
         static void Main(string[] args)
         {
+
             #region Dictionary
             //Dictionary<int, string> mydic = new Dictionary<int, string>()
             //{
@@ -76,7 +89,7 @@ namespace CSharpBasics
 
             //Queue<Employee> queue = new Queue<Employee>();
             //queue.Enqueue(new Employee { Id = 1 });
-            //queue.Enqueue(new Employee { Id = 2 }); 
+            //queue.Enqueue(new Employee { Id = 2 });
             //foreach (var element in queue)
             //{
             //    Console.WriteLine($"Queue Employee with ID {element.Id}");
@@ -88,16 +101,18 @@ namespace CSharpBasics
             //A obj = new A();
             //obj.Concat<int>();
 
+            bool in24format = false;
+            string clock = DateTime.Now.ToString(in24format ? "HH:mm:ss" : "hh:mm:ss tt");
+            Console.WriteLine(clock);
 
-            Console.WriteLine("Hello nice people!");
+            GetDigitsDelegate getDigitsDel = GetDigits;
+
+            foreach (var digit in getDigitsDel())
+            {
+                Console.WriteLine(digit);
+            }
             
             
-            ////////////////////////////////////////////////////////////
-            // write a console app
-            // input numbers in dynamic list
-            // input the necessary number to find
-            // count steps for finding the specific number
-            ////////////////////////////////////////////////////////////
 
         }
     }
