@@ -3,17 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Security.Cryptography.X509Certificates;
+using System.Runtime.InteropServices.Marshalling;
 
 namespace CSharpBasics
 {
+    internal enum Colors
+    {
+        red = 1000,
+        green,
+        blue,
+        yellow,
+    }
     class Program
     {
-        public class A
+        public abstract class A
         {
+            private enum Cars
+            {
+                Bmw,
+                Mercedes,
+                Audi,
+                Tesla,
+                Toyota,
+            }
             public string Concat<T>(T item1, T item2)
             {
-                string concat = item1.ToString() + item2.ToString();
+                string concat = item1?.ToString() + item2?.ToString() ?? "nothing";
                 return concat;
+            }
+        }
+        public class B : A
+        {
+            B() 
+            {
+                Console.WriteLine("Constructor called");
+            }
+            public string Concat<T>(T item1, T item2, T item3)
+            {
+                return item1?.ToString() + item2?.ToString() + item3?.ToString();
             }
         }
 
@@ -24,9 +51,13 @@ namespace CSharpBasics
             public string? Name { get; set; }
             public int Id { get; set; }
             public static int SomeMethod() { return 0; }
-
+            public readonly int GetId()
+            {
+                return Id;
+            }
         }
-            public delegate int SomeMethodDelegate();
+        
+        public delegate int SomeMethodDelegate();
 
         public static IEnumerable GetDigits()
         {
@@ -38,6 +69,7 @@ namespace CSharpBasics
         }
         public delegate IEnumerable GetDigitsDelegate();
         // Driver Code
+
         static void Main(string[] args)
         {
 
@@ -101,19 +133,25 @@ namespace CSharpBasics
             //A obj = new A();
             //obj.Concat<int>();
 
-            bool in24format = false;
-            string clock = DateTime.Now.ToString(in24format ? "HH:mm:ss" : "hh:mm:ss tt");
-            Console.WriteLine(clock);
+            //bool in24format = false;
+            //string clock = DateTime.Now.ToString(in24format ? "HH:mm:ss" : "hh:mm:ss tt");
+            //Console.WriteLine(clock);
 
-            GetDigitsDelegate getDigitsDel = GetDigits;
+            //GetDigitsDelegate getDigitsDel = GetDigits;
 
-            foreach (var digit in getDigitsDel())
-            {
-                Console.WriteLine(digit);
-            }
-            
-            
+            //foreach (var digit in getDigitsDel())
+            //{
+            //    Console.WriteLine(digit);
+            //}
 
+            string str1 = "Hello", str2 = String.Concat(string.Empty + str1);
+            Console.WriteLine(Object.ReferenceEquals(str1, str2));
+
+            Console.WriteLine(Colors.red);
+
+            var input = "100";
+            if (int.TryParse(input, out int result))
+                Console.WriteLine(result);
         }
     }
 }
