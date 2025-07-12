@@ -1,9 +1,9 @@
-﻿namespace SerializationBasics;
+﻿using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
-class XmlSerialization
+namespace SerializationBasics;
+
+internal static class XmlSerialization
 {
-    public static void Main()
-    {
-
-    }
+    
 }
