@@ -6,7 +6,6 @@ using System.Text.Json.Serialization;
 namespace SerializationBasics
 {
 
-
     internal static class JsonSerialization
     {
         
