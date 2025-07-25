@@ -1,4 +1,4 @@
-﻿using System.Threading;
+// using System.Threading;
 namespace CSharpBasics;
 
 class ThreadingBasics
@@ -19,7 +19,7 @@ class ThreadingBasics
                 _val2 = 0;
                 Console.WriteLine($"val1 = {_val1}, val2 = {_val2}");
             }
-            finally {  if (obj.lockTaken) Monitor.Exit(_locker); }
+            finally { if (obj.lockTaken) Monitor.Exit(_locker); }
         }
     }
     static void Main()
