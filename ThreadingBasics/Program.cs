@@ -1,4 +1,7 @@
-// using System.Threading;
+using System.Threading;
+using System.Collections.Concurrent;
+using System.Diagnostics.Metrics;
+
 namespace CSharpBasics;
 
 class ThreadingBasics
@@ -8,6 +11,7 @@ class ThreadingBasics
         static readonly object _locker = new object();
         bool lockTaken = false;
         static int _val1 = 1, _val2 = 1;
+        static Semaphore smph = new(1, 3);
 
         public static void MonitorSyncMethod()
         {
@@ -33,11 +37,41 @@ class ThreadingBasics
             }
             finally { mutex.ReleaseMutex(); }
         }
+        public static void SemaphoreSyncMethod()
+        {
+            int id = Thread.CurrentThread.ManagedThreadId;
+            Console.WriteLine(id + " wants to enter");
+            smph.WaitOne(1000);
+            Console.WriteLine(id + " is in!");           // Only three threads
+            Thread.Sleep(1000 * (int)id);               // can be here at
+            Console.WriteLine(id + " is leaving");       // a time.
+            smph.Release();
+        }
     }
     static void Main()
     {
-        Thread t1 = new(ThreadSafe.MutexSyncMethod), t2 = new(ThreadSafe.MutexSyncMethod);
+        //for (int i = 1; i <= 5; i++) new Thread(ThreadSafe.SemaphoreSyncMethod).Start();
+        /*Thread t1 = new(ThreadSafe.SemaphoreSyncMethod), t2 = new(ThreadSafe.SemaphoreSyncMethod);
         t1.Start();
-        t2.Start();
+        t2.Start();*/
+
+        Console.WriteLine("enter value:");
+        int n = Convert.ToInt32(Console.ReadLine());
+        ConcurrentDictionary<int, bool> range = new(Enumerable.Range(2, n - 1).ToDictionary(k => k, v => true));
+        object _locker = new();
+        for (int i = 2; i * i <= n; i++)
+        {
+            Thread t1 = new Thread(() =>
+            {
+                for (int j = i * i; j <= n; j += i)
+                {
+                    range[j] = false;
+                }
+            });
+            t1.Start();
+            t1.Join();
+        }
+
+        Console.WriteLine("the primes are:\n" + string.Join(", ", range.Where(k => k.Value).Select(p => p.Key)));
     }
 }
