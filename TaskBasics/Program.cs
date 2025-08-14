@@ -71,5 +71,39 @@ class Program
         var custom_task = new Task(() => { Console.WriteLine($"A task with id {Task.CurrentId} and custom options has been executed."); },  
             TaskCreationOptions.LongRunning | TaskCreationOptions.PreferFairness);
         custom_task.Start();
+        Task.WaitAll(custom_task);
+
+        // detached task
+        var outer = Task.Factory.StartNew(() =>
+        {
+            Console.WriteLine("Outer task beginning.");
+
+            var child = Task.Factory.StartNew(() =>
+            {
+                Thread.SpinWait(5000000);
+                Console.WriteLine("Detached task completed.");
+            });
+        });
+        outer.Wait();
+        Console.WriteLine("Outer task completed.");
+        Task.WaitAll();
+
+        // attached task
+        var parent = Task.Factory.StartNew(() =>
+        {
+            Console.WriteLine("Parent task begins.");
+            for (int i = 0; i < 10; i++)
+            {
+                int taskNumber = i;
+                Task.Factory.StartNew((x) =>
+                {
+                    Thread.SpinWait(5000000);
+                    Console.WriteLine($"Attached child {x} completed.");
+                }, taskNumber, TaskCreationOptions.AttachedToParent);
+            }
+        });
+        parent.Wait();
+        Console.WriteLine("Parent task completed.");
+        Task.WaitAll();
     }
 }
