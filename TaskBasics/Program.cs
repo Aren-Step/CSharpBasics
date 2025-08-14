@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Reflection;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -106,7 +107,48 @@ class Program
         Console.WriteLine("Parent task completed.");
         Task.WaitAll();
 
+        ExHandling();
+        Task.WaitAll();
+
+        Console.WriteLine("----------------------------");
         ChangeCulture();
+    }
+
+    public static void ExHandling()
+    {
+        var task = Task.Factory.StartNew(() =>
+        {
+            var child = Task.Factory.StartNew(() =>
+            {
+                var grandChild = Task.Factory.StartNew(() =>
+                {
+                    // This exception is nested inside three AggregateExceptions.
+                    throw new DivideByZeroException("Attached child2 faulted.");
+                }, TaskCreationOptions.AttachedToParent);
+
+                // This exception is nested inside two AggregateExceptions.
+                throw new DivideByZeroException("Attached child1 faulted.");
+            }, TaskCreationOptions.AttachedToParent);
+        });
+
+        try
+        {
+            task.Wait();
+        }
+        catch (AggregateException ae)
+        {
+            foreach (var ex in ae.Flatten().InnerExceptions)
+            {
+                if (ex is DivideByZeroException)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
     }
 
     public static void ChangeCulture()
