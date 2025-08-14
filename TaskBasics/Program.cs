@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Channels;
 using System.Threading.Tasks;
 
@@ -66,5 +67,9 @@ class Program
             if (data != null)
                 Console.WriteLine($"Task #{data.Name} created at {data.CreationTime} on thread #{data.ThreadNum}.");
         }
+
+        var custom_task = new Task(() => { Console.WriteLine($"A task with id {Task.CurrentId} and custom options has been executed."); },  
+            TaskCreationOptions.LongRunning | TaskCreationOptions.PreferFairness);
+        custom_task.Start();
     }
 }
