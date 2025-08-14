@@ -6,6 +6,13 @@ namespace TaskBasics;
 
 class Program
 {
+    class CustomData
+    {
+        public long CreationTime;
+        public int Name;
+        public int ThreadNum;
+    }
+
     public static void Main()
     {
         Parallel.Invoke(
@@ -41,5 +48,23 @@ class Program
                                  x.Result.Item3);
         });
         Console.WriteLine(displayData.Result);
+
+        Task[] taskArray = new Task[10];
+        for (int i = 0; i < taskArray.Length; i++)
+        {
+            taskArray[i] = Task.Factory.StartNew((object? obj) => {
+                CustomData data = obj as CustomData;
+                if (data == null)
+                    return;
+                data.ThreadNum = Thread.CurrentThread.ManagedThreadId;
+            }, new CustomData() { Name = i, CreationTime = DateTime.Now.Ticks});
+        }
+        Task.WaitAll(taskArray);
+        foreach (var task in taskArray)
+        {
+            var data = task.AsyncState as CustomData;
+            if (data != null)
+                Console.WriteLine($"Task #{data.Name} created at {data.CreationTime} on thread #{data.ThreadNum}.");
+        }
     }
 }
