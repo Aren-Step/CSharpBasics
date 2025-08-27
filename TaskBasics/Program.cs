@@ -55,7 +55,7 @@ class Program
         for (int i = 0; i < taskArray.Length; i++)
         {
             taskArray[i] = Task.Factory.StartNew((object? obj) => {
-                CustomData data = obj as CustomData;
+                CustomData? data = obj as CustomData;
                 if (data == null)
                     return;
                 data.ThreadNum = Thread.CurrentThread.ManagedThreadId;
