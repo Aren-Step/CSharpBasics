@@ -1,4 +1,4 @@
 # CSharpBasics
 
-This is a C# project that demonstrates basic concepts of the C# programming language. 
-It includes examples of variables, data types, control structures, and object-oriented programming principles.
+This is a C# project that demonstrates basic concepts of the C# programming language. \
+It includes examples of .NET concepts such as Reflection, Serialization, Threading and Synchronization, Task Parallel Programming (TPP), Task Asynchronous Programming (TAP).
