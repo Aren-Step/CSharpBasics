@@ -56,8 +56,41 @@ namespace CSharpBasics
                 return Id;
             }
         }
+
         
-        public delegate int SomeMethodDelegate();
+        #region Events
+        public delegate void EventHandlerDelegate();
+
+        public class Publisher
+        {
+            public event EventHandlerDelegate EventMember;
+
+            public void EventRaiser()
+            {
+                Console.WriteLine("Raising an event...");
+                EventMember?.Invoke();
+            }
+        }
+
+        public class Subscriber
+        {
+            public Subscriber(Publisher pb)
+            {
+                Console.WriteLine("Subscribing all the methods to the event...");
+                pb.EventMember += EventHandlerMethod1;
+                pb.EventMember += EventHandlerMethod2;
+            }
+
+            public static void EventHandlerMethod1()
+            {
+                Console.WriteLine("Event Handler 1 called!");
+            }
+            public static void EventHandlerMethod2()
+            {
+                Console.WriteLine("Event Handler 1 called!");
+            }
+            #endregion
+
 
         public static IEnumerable GetDigits()
         {
@@ -73,7 +106,7 @@ namespace CSharpBasics
         static void Main(string[] args)
         {
 
-            #region Dictionary
+            #region Dictionary, Stack and Queue
             //Dictionary<int, string> mydic = new Dictionary<int, string>()
             //{
             //    {1, "Davit Stepanyan" },
